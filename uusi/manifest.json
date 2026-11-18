@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Tarra365 – laitetarrat",
+  "short_name": "Tarra365",
+  "version": "2.2.0",
+  "description": "Tunnistaa laitteen tiedot sivulta (3stepIT, Tesma, Miradore ja yleiset lomakkeet) ja tulostaa ne DYMO-tarralle.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tarra365",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png"
+    }
+  },
+  "options_page": "options.html",
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+T" },
+      "description": "Avaa Tarra365"
+    }
+  }
+}

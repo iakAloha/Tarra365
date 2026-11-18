@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarra365 – asetukset</title>
+  <style>
+    body { font: 14px/1.5 "Segoe UI", Roboto, Arial, sans-serif; background: #f0f2f5; color: #1d2330; margin: 0; }
+    main { max-width: 860px; margin: 0 auto; padding: 24px 16px 60px; }
+    h1 { color: #0b5cad; font-size: 22px; margin: 0 0 4px; }
+    h2 { font-size: 15px; margin: 0 0 10px; }
+    p.lead { color: #6b7385; margin: 0 0 20px; }
+    .card { background: #fff; border-radius: 10px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+    .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .f { border: 1px solid #e2e5eb; border-radius: 8px; padding: 10px; }
+    .f h3 { margin: 0 0 6px; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
+    .f h3 label { font-weight: 400; font-size: 12px; color: #6b7385; display: flex; gap: 4px; align-items: center; }
+    label.blk { display: block; font-size: 12px; color: #6b7385; margin-top: 6px; }
+    input[type=text], input[type=number], textarea, select {
+      font: inherit; font-size: 13px; width: 100%; box-sizing: border-box; padding: 5px 7px;
+      border: 1px solid #d5d9e0; border-radius: 5px; background: #fff;
+    }
+    textarea { min-height: 150px; resize: vertical; font-family: Consolas, monospace; font-size: 12.5px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px 14px; }
+    .hint { color: #6b7385; font-size: 12px; margin: 6px 0 0; }
+    .bar { display: flex; gap: 8px; align-items: center; position: sticky; bottom: 0; background: #f0f2f5; padding: 12px 0; }
+    button { font: inherit; font-weight: 600; cursor: pointer; border-radius: 6px; padding: 8px 16px; border: 1px solid #d5d9e0; background: #fff; }
+    button.primary { background: #0b5cad; color: #fff; border-color: #0b5cad; }
+    #saved { color: #1d7a3a; font-weight: 600; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Tarra365 – asetukset</h1>
+  <p class="lead">Määritä, millä otsikoilla tiedot tunnistetaan sivulta ja miltä tarra näyttää.</p>
+
+  <section class="card">
+    <h2>Kentät ja tunnistus</h2>
+    <div class="fields" id="fields"></div>
+    <p class="hint">
+      Tunnistetut otsikot: yksi per rivi, kirjainkoolla ei ole väliä. Laajennos etsii sivulta elementin, jonka teksti on
+      täsmälleen otsikko (esim. taulukon <code>th</code>, <code>dt</code> tai lomakkeen <code>label</code>), ja lukee arvon
+      sen vierestä – sekä tekstin muodossa <code>Otsikko: arvo</code>. 3stepIT ja Tesma tunnistetaan lisäksi omilla säännöillään.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Tarran ulkoasu</h2>
+    <div class="grid">
+      <label class="blk">Otsikkorivi (lihavoitu, iso)
+        <select id="titleField"></select></label>
+      <label class="blk">Fonttikoko, max (pt)
+        <input type="number" id="fontSize" min="5" max="24" step="0.5"></label>
+      <label class="blk">Reunus (mm)
+        <input type="number" id="padding" min="0" max="10" step="0.5"></label>
+      <label class="blk">Viivakoodin korkeus (mm)
+        <input type="number" id="barcodeHeight" min="3" max="30" step="0.5"></label>
+    </div>
+    <label class="blk">Lisäteksti tarran alareunaan (esim. "Omaisuutta: Yritys Oy · puh. 010 123 4567")
+      <input type="text" id="extraText" maxlength="120"></label>
+  </section>
+
+  <div class="bar">
+    <button class="primary" id="save">Tallenna</button>
+    <button id="reset">Palauta oletukset</button>
+    <button id="clearHistory">Tyhjennä tulostushistoria</button>
+    <span id="saved"></span>
+  </div>
+</main>
+<script src="defaults.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

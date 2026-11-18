@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { 
+      width: 320px; 
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+      padding: 15px; 
+      margin: 0;
+      background-color: #f0f2f5;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #0056b3;
+      padding-bottom: 8px;
+    }
+    h3 { 
+      font-size: 18px; 
+      color: #0056b3; 
+      margin: 0;
+    }
+    .container {
+      background: white;
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .data-group {
+      margin-bottom: 12px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 8px;
+    }
+    .data-group:last-child {
+      border-bottom: none;
+    }
+    .label { 
+      display: block;
+      font-size: 11px;
+      font-weight: bold; 
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .value { 
+      display: block;
+      font-size: 14px;
+      color: #222; 
+      font-weight: 500;
+      word-break: break-all;
+      min-height: 1.2em;
+    }
+    .btn-group {
+      margin-top: 15px;
+      display: grid;
+      gap: 10px;
+    }
+    button { 
+      cursor: pointer; 
+      padding: 12px; 
+      border: none; 
+      border-radius: 6px; 
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    #keraaTiedot { 
+      background-color: #007bff; 
+      color: white; 
+    }
+    #keraaTiedot:hover { background-color: #0056b3; }
+    
+    #tulosta { 
+      background-color: #28a745; 
+      color: white; 
+    }
+    #tulosta:hover { background-color: #218838; }
+    
+    #tulosta:active, #keraaTiedot:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h3>Dymo Tarratyökalu</h3>
+  </div>
+
+  <div class="container">
+    <div class="data-group">
+      <span class="label">Laitenumero (#)</span>
+      <span id="idNum" class="value">-</span>
+    </div>
+    
+    <div class="data-group">
+      <span class="label">Laitteen nimi</span>
+      <span id="nimi" class="value">-</span>
+    </div>
+    
+    <div class="data-group">
+      <span class="label">Sarjanumero (S/N)</span>
+      <span id="sn" class="value">-</span>
+    </div>
+    
+    <div class="data-group">
+      <span class="label">Leasing päättyy</span>
+      <span id="loppu" class="value">-</span>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button id="keraaTiedot">Hae tiedot sivulta</button>
+    <button id="tulosta">Tulosta tarra</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

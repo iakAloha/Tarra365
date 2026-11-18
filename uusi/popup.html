@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarra365</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icon48.png" alt="" width="22" height="22">
+    <h1>Tarra365</h1>
+    <span id="status" class="chip">Haetaan…</span>
+    <button id="refresh" class="icon" title="Hae tiedot sivulta uudelleen (hylkää omat muutokset)">⟳</button>
+    <button id="openOptions" class="icon" title="Asetukset">⚙</button>
+  </header>
+
+  <section id="fields" class="card"></section>
+
+  <section class="card">
+    <div class="preview-wrap" id="previewWrap"><div id="preview"></div></div>
+    <ul id="warnings" class="warnings"></ul>
+    <div class="controls">
+      <label>Tarra
+        <select id="size"></select>
+      </label>
+      <label>Viivakoodi
+        <select id="barcode"></select>
+      </label>
+      <label class="narrow">Kpl
+        <input id="copies" type="number" min="1" max="50" value="1">
+      </label>
+    </div>
+    <div id="customSize" class="controls" hidden>
+      <label>Leveys mm <input id="customW" type="number" min="10" max="200" step="1"></label>
+      <label>Korkeus mm <input id="customH" type="number" min="10" max="200" step="1"></label>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button id="print" class="primary" title="Ctrl+Enter">Tulosta tarra</button>
+    <button id="copy" title="Kopioi tiedot leikepöydälle">Kopioi</button>
+    <button id="clear" title="Tyhjennä kentät">Tyhjennä</button>
+  </div>
+
+  <details id="historyBox">
+    <summary>Viimeksi tulostetut</summary>
+    <ul id="history"></ul>
+  </details>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="defaults.js"></script>
+  <script src="label.js"></script>
+  <script src="extractor.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

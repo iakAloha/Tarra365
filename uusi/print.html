@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarra365 – tulostus</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #fff; }
+    .page { overflow: hidden; break-after: page; page-break-after: always; }
+    .page:last-child { break-after: auto; page-break-after: auto; }
+    #info { font: 13px/1.5 "Segoe UI", Arial, sans-serif; color: #444; padding: 16px; max-width: 520px; }
+    #info b { color: #000; }
+    @media screen {
+      body { background: #e9ecf1; }
+      #labels { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 16px 16px; }
+      .page { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.25); }
+    }
+    @media print {
+      #info { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <b>Tulostus.</b> Valitse tulostusikkunassa DYMO-tulostin. Jos tarra tulostuu väärin, avaa
+    <i>Lisää asetuksia</i> → <i>Paperikoko</i> = tarran koko, <i>Marginaalit</i> = Ei mitään ja
+    <i>Mittakaava</i> = 100 %. Ikkuna sulkeutuu tulostuksen jälkeen.
+  </div>
+  <div id="labels"></div>
+  <script src="defaults.js"></script>
+  <script src="label.js"></script>
+  <script src="print.js"></script>
+</body>
+</html>
